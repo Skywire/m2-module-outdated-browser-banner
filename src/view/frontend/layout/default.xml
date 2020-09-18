@@ -1,0 +1,11 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="after.body.start">
+            <block name="skywire-outdated-banner" template="Skywire_OutdatedBrowserBanner::banner.phtml" before="-">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Skywire\OutdatedBrowserBanner\ViewModel\Banner</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
