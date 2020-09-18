@@ -1,0 +1,26 @@
+<?php /** @var $block \Magento\Framework\View\Element\Template */ ?>
+<?php /** @var $viewModel \Skywire\OutdatedBrowserBanner\ViewModel\Banner */ ?>
+<?php $viewModel = $block->getViewModel() ?>
+<a href="https://updatemybrowser.org/" target="_blank" id="sw-ie11-warning" style="display:none;">
+    <img src="<?= $block->escapeHtmlAttr($viewModel->getBannerUrl()) ?>" alt="" />
+</a>
+<script>
+    try {
+        var SWisIE11 = SWdetectIE();
+
+        function SWdetectIE(uaString) {
+            uaString = uaString || navigator.userAgent;
+            var match = /\b(MSIE |Trident.*?rv:|Edge\/)(\d+)/.exec(uaString);
+            if (match) return parseInt(match[2])
+        }
+
+        // var SWisIE11 = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
+        if (SWisIE11 <= 11) {
+            document.getElementById("sw-ie11-warning").style.display = 'block';
+        } else {
+            document.getElementById("sw-ie11-warning").classList.add("sw-not-ie11");
+        }
+    } catch (e) {
+        console.log('SWdetectIE broken: ' + e.message)
+    }
+</script>
