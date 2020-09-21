@@ -1,0 +1,52 @@
+.sw-browser-warning {
+    background: repeating-linear-gradient(-45deg, #dbdbdb, #dbdbdb 25px, #e4e4e4 25px, #e4e4e4 50px);
+    color: #000;
+    display: none;
+
+    &__inner {
+        display: block;
+        font-size: 15px;
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 35px;
+    }
+
+    &__text {
+        margin: 0 0 20px;
+    }
+
+    &__browser {
+        background: #fff;
+        border-radius: 30px;
+        display: inline-block;
+        margin: 0 0 20px;
+        padding: 10px 20px 10px 10px;
+    }
+
+    &__icon {
+        background: no-repeat left top;
+        background-size: contain;
+        display: inline-block;
+        height: 40px;
+        margin: 0 10px 0 0;
+        vertical-align: middle;
+        width: 40px;
+
+        &--chrome {
+            background-image: url("Skywire_OutdatedBrowserBanner::images/chrome.svg");
+        }
+
+        &--edge {
+            background-image: url("Skywire_OutdatedBrowserBanner::images/edge.svg");
+        }
+
+        &--firefox {
+            background-image: url("Skywire_OutdatedBrowserBanner::images/firefox.svg");
+        }
+
+        &--safari {
+            background-image: url("Skywire_OutdatedBrowserBanner::images/safari.svg");
+        }
+    }
+}

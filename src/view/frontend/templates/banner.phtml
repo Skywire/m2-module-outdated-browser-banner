@@ -1,8 +1,27 @@
 <?php /** @var $block \Magento\Framework\View\Element\Template */ ?>
 <?php /** @var $viewModel \Skywire\OutdatedBrowserBanner\ViewModel\Banner */ ?>
 <?php $viewModel = $block->getViewModel() ?>
-<a href="https://updatemybrowser.org/" target="_blank" id="sw-ie11-warning" style="display:none;">
-    <img src="<?= $block->escapeHtmlAttr($viewModel->getBannerUrl()) ?>" alt="" />
+<a href="https://updatemybrowser.org/" target="_blank" class="sw-browser-warning" id="sw-browser-warning">
+    <span class="sw-browser-warning__inner">
+        <p class="sw-browser-warning__text">It looks like you are still using an browser that is no longer supported with security updates. Some features on this site may not work including the checkout. We strongly recommend that you either update your browser or use another one such as:</p>
+
+        <span class="sw-browser-warning__browser">
+            <span class="sw-browser-warning__icon sw-browser-warning__icon--chrome"></span>
+            Google Chrome
+        </span>
+        <span class="sw-browser-warning__browser">
+            <span class="sw-browser-warning__icon sw-browser-warning__icon--edge"></span>
+            Microsoft Edge
+        </span>
+        <span class="sw-browser-warning__browser">
+            <span class="sw-browser-warning__icon sw-browser-warning__icon--firefox"></span>
+            Firefox
+        </span>
+        <span class="sw-browser-warning__browser">
+            <span class="sw-browser-warning__icon sw-browser-warning__icon--safari"></span>
+            Safari
+        </span>
+    </span>
 </a>
 <script>
     try {
@@ -16,9 +35,9 @@
 
         // var SWisIE11 = '-ms-scroll-limit' in document.documentElement.style && '-ms-ime-align' in document.documentElement.style;
         if (SWisIE11 <= 11) {
-            document.getElementById("sw-ie11-warning").style.display = 'block';
+            document.getElementById("sw-browser-warning").style.display = 'block';
         } else {
-            document.getElementById("sw-ie11-warning").classList.add("sw-not-ie11");
+            document.getElementById("sw-browser-warning").classList.add("sw-browser-ok");
         }
     } catch (e) {
         console.log('SWdetectIE broken: ' + e.message)
